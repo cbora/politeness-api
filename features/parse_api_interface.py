@@ -78,9 +78,12 @@ print host
 if host in ("localhost", "heroku"):
     # need to access commandline for parses
     get_parse = get_parse_commandline
-else:
+elif host in ("localhost", "mpi-sws"):
     # On mpi-sws
     get_parse = get_parse_jsonrpc
+else:
+    # any other host
+    get_parse = get_parse_commandline
 
 
 
